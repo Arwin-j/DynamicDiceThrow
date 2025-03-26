@@ -24,16 +24,21 @@ class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(savedInstanceState == null){
-            val isLandScape = findViewById<View?>(R.id.container2) != null
+        val isLandScape = findViewById<View?>(R.id.container2) != null
 
-            if(isLandScape){
+        if(isLandScape){
+            val buttonFragment = supportFragmentManager.findFragmentById(R.id.container1)
+            val dieFragment = supportFragmentManager.findFragmentById(R.id.container2)
+
+            if(buttonFragment == null || dieFragment == null){
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container1, ButtonFragment())
                     .replace(R.id.container2, DieFragment())
                     .commit()
             }
-            else{
+
+        }else{
+            if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container1, ButtonFragment())
                     .commit()
