@@ -17,6 +17,7 @@ see the changes.
 Follow the requirements below to have this app function
 in both portrait and landscape configurations.
 The Activity layout files for both Portrait and Landscape are already provided
+
 */
 
 class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
